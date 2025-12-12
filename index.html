@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nur Malika Adelia | Fullstack Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #6C63FF;
+      --secondary: #4D44DB;
+      --dark: #2F2E41;
+      --light: #F8F9FA;
+      --gray: #6C757D;
+      --light-gray: #E9ECEF;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header & Navigation */
+    header {
+      background-color: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 0;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: var(--secondary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      bottom: -5px;
+      left: 0;
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .mobile-menu {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* Hero Section */
+    #hero {
+      padding: 5rem 0;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    }
+
+    .hero-content {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .hero-text {
+      flex: 1;
+    }
+
+    .hero-image {
+      flex: 1;
+      text-align: center;
+    }
+
+    .profile-img {
+      width: 350px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .tagline {
+      font-size: 1.2rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    h1 span {
+      color: var(--primary);
+    }
+
+    .hero-description {
+      font-size: 1.1rem;
+      color: var(--gray);
+      margin-bottom: 2rem;
+      max-width: 600px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: white;
+      color: var(--primary);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      background-color: var(--primary);
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    /* Sections */
+    section {
+      padding: 5rem 0;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      text-align: center;
+      position: relative;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      width: 80px;
+      height: 4px;
+      background: var(--primary);
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    .section-card {
+      background-color: white;
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      margin-bottom: 2rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .section-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    /* About Section */
+    #about p {
+      font-size: 1.1rem;
+      color: var(--gray);
+      margin-bottom: 1.5rem;
+    }
+
+    /* Skills Section */
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .skill-category {
+      margin-bottom: 1.5rem;
+    }
+
+    .skill-category h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: var(--secondary);
+    }
+
+    .skill-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+
+    .skill-icon {
+      width: 40px;
+      height: 40px;
+      background-color: var(--light-gray);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1rem;
+      color: var(--primary);
+    }
+
+    /* Projects Section */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .project-image {
+      height: 200px;
+      background-color: var(--light-gray);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gray);
+    }
+
+    .project-details {
+      padding: 1.5rem;
+      background-color: white;
+    }
+
+    .project-details h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-year {
+      display: inline-block;
+      background-color: var(--light-gray);
+      color: var(--gray);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .project-links a {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.5rem 1rem;
+      background-color: var(--primary);
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+
+    .project-links a:hover {
+      background-color: var(--secondary);
+    }
+
+    .project-links a i {
+      margin-right: 0.5rem;
+    }
+
+    /* Experience Section */
+    .experience-item {
+      margin-bottom: 2.5rem;
+    }
+
+    .experience-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+    }
+
+    .experience-title h3 {
+      font-size: 1.4rem;
+      color: var(--dark);
+      margin-bottom: 0.3rem;
+    }
+
+    .experience-company {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .experience-date {
+      background-color: var(--light-gray);
+      color: var(--gray);
+      padding: 0.3rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+    }
+
+    .experience-description {
+      color: var(--gray);
+      margin-bottom: 1rem;
+    }
+
+    .experience-responsibilities {
+      margin-top: 1rem;
+    }
+
+    .responsibility-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 0.5rem;
+    }
+
+    .responsibility-item i {
+      color: var(--primary);
+      margin-right: 0.5rem;
+      margin-top: 0.2rem;
+      font-size: 0.8rem;
+    }
+
+    /* Education & Certificates */
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      width: 2px;
+      background-color: var(--light-gray);
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -1px;
+    }
+
+    .timeline-item {
+      padding: 10px 40px;
+      position: relative;
+      width: 50%;
+      box-sizing: border-box;
+    }
+
+    .timeline-item:nth-child(odd) {
+      left: 0;
+    }
+
+    .timeline-item:nth-child(even) {
+      left: 50%;
+    }
+
+    .timeline-content {
+      padding: 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+
+    .timeline-date {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: var(--primary);
+      border-radius: 50%;
+      top: 15px;
+      z-index: 1;
+    }
+
+    .timeline-item:nth-child(odd)::after {
+      right: -10px;
+    }
+
+    .timeline-item:nth-child(even)::after {
+      left: -10px;
+    }
+
+    /* Contact Section - DIUBAH */
+    #contact {
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    }
+
+    .contact-info {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .contact-card {
+      background-color: white;
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+      border-color: var(--primary);
+    }
+
+    .contact-icon-wrapper {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      color: white;
+      font-size: 1.8rem;
+    }
+
+    .contact-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+      color: var(--dark);
+    }
+
+    .contact-card p {
+      color: var(--gray);
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-link {
+      display: inline-block;
+      margin-top: 1rem;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      border-bottom: 2px solid transparent;
+    }
+
+    .contact-link:hover {
+      color: var(--secondary);
+      border-bottom-color: var(--primary);
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--dark);
+      color: white;
+      padding: 2rem 0;
+      text-align: center;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .footer-links a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+
+    .copyright {
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .hero-content {
+        flex-direction: column;
+      }
+      
+      .hero-text {
+        order: 2;
+        text-align: center;
+      }
+      
+      .hero-image {
+        order: 1;
+      }
+      
+      .contact-container {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      
+      .mobile-menu {
+        display: block;
+      }
+      
+      h1 {
+        font-size: 2.5rem;
+      }
+      
+      h2 {
+        font-size: 2rem;
+      }
+      
+      .experience-header {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      
+      .timeline::before {
+        left: 31px;
+      }
+      
+      .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+      }
+      
+      .timeline-item:nth-child(even) {
+        left: 0;
+      }
+      
+      .timeline-item::after {
+        left: 21px !important;
+      }
+      
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#" class="logo">Nur<span>Malika</span></a>
+        <div class="nav-links">
+          <a href="#home">Home</a>
+          <a href="#about">Tentang Saya</a>
+          <a href="#skills">Keahlian</a>
+          <a href="#projects">Proyek</a>
+          <a href="#experience">Pengalaman</a>
+          <a href="#education">Pendidikan</a>
+          <a href="#contact">Kontak</a>
+        </div>
+        <div class="mobile-menu">
+          <i class="fas fa-bars"></i>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section id="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <p class="tagline">Fullstack Developer</p>
+          <h1>Hai, Saya <span>Nur Malika Adelia</span></h1>
+        <p class="hero-description">
+    Saya adalah Fullstack Developer dengan pengalaman dalam mengembangkan aplikasi web menggunakan Laravel dan ReactJS. Selama magang di PT Solusi Aplikasi Integrasi, saya mengerjakan pengembangan Front-End dan Back-End untuk berbagai proyek, termasuk manusia.ai dan display-app.
+</p>
+
+          <div class="social-links">
+            <a href="https://github.com/Nurmalikaadelia79"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/nur-malika-adelia-7b9891321/"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://instagram.com/Nurmalikaadelia79"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="foto.jpg" alt="Nur Malika Adelia" class="profile-img">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="container">
+    <h2>Tentang Saya</h2>
+    <div class="section-card">
+      <p>
+        Saya adalah Siswa SMK Wikrama Bogor jurusan Pengembangan Perangkat Lunak dan Gim. Saya memiliki pengalaman magang selama 6 bulan di PT Solusi Aplikasi Integrasi sebagai Front-End Developer untuk proyek manusia.ai dan disply, mulai dari membangun tampilan hingga memastikan pengalaman pengguna berjalan optimal.
+      </p>
+      <p>
+        Selain itu, saya juga terlibat dalam pekerjaan sebagai Content Writer dan Designer, yang memperluas pemahaman saya dalam pembuatan konten dan komunikasi visual. Saya mampu bekerja secara mandiri maupun tim, cepat beradaptasi, dan selalu berusaha memberikan hasil terbaik pada setiap tugas yang saya jalani.
+      </p>
+      <p>
+        Dengan pengetahuan dalam teknologi seperti Laravel, ReactJS, MySQL, dan RESTful API, saya siap untuk berkontribusi dalam pengembangan aplikasi web yang modern dan fungsional.
+      </p>
+    </div>
+  </section>
+
+  <section id="skills" class="container">
+    <h2>Keahlian</h2>
+    <div class="skills-container">
+      <div class="section-card">
+        <div class="skill-category">
+          <h3>Front-End Development</h3>
+          <div class="skill-item">
+            <div class="skill-icon">
+              <i class="fab fa-html5"></i>
+            </div>
+            <span>HTML</span>
+          </div>
+          <div class="skill-item">
+            <div class="skill-icon">
+              <i class="fab fa-css3-alt"></i>
+            </div>
+            <span>CSS</span>
+          </div>
+          <div class="skill-item">
+            <div class="skill-icon">
+              <i class="fab fa-js"></i>
+            </div>
+            <span>JavaScript</span>
+          </div>
+          <div class="skill-item">
+            <div class="skill-icon">
+              <i class="fab fa-react"></i>
+            </div>
+            <span>ReactJS</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <div class="skill-category">
+          <h3>Back-End Development</h3>
+          <div class="skill-item">
+            <div class="skill-icon">
+              <i class="fab fa-php"></i>
+            </div>
+            <span>PHP</span>
+          </div>
+          <div class="skill-item">
+            <div class="skill-icon">
+              <i class="fas fa-database"></i>
+            </div>
+            <span>MySQL</span>
+          </div>
+          <div class="skill-item">
+            <div class="skill-icon">
+              <i class="fas fa-server"></i>
+            </div>
+            <span>Laravel</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <div class="skill-category">
+          <h3>Teknologi Lainnya</h3>
+          <div class="skill-item">
+            <div class="skill-icon">
+              <i class="fab fa-git-alt"></i>
+            </div>
+            <span>Git</span>
+          </div>
+          <div class="skill-item">
+            <div class="skill-icon">
+              <i class="fas fa-code"></i>
+            </div>
+            <span>RESTful API</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="container">
+    <h2>Proyek Terbaru</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-image">
+          <i class="fas fa-pills" style="font-size: 3rem; color: var(--gray);"></i>
+        </div>
+        <div class="project-details">
+          <h3>Sistem Manajemen Apotek</h3>
+          <span class="project-year">2024</span>
+          <p>Sistem berbasis web untuk manajemen inventaris dan transaksi apotek dengan fitur laporan lengkap.</p>
+          <div class="project-links">
+            <a href="https://github.com/Nurmalikaadelia79/appotek.git"><i class="fab fa-github"></i> Kode</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-image">
+          <i class="fas fa-book" style="font-size: 3rem; color: var(--gray);"></i>
+        </div>
+        <div class="project-details">
+          <h3>Perpustakaan Digital</h3>
+          <span class="project-year">2025</span>
+          <p>Sistem manajemen perpustakaan dengan fitur peminjaman online, pencarian buku, dan admin dashboard.</p>
+          <div class="project-links">
+            <a href="https://github.com/Nurmalikaadelia79/library-app.git"><i class="fab fa-github"></i> Kode</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-image">
+          <i class="fas fa-cloud-sun" style="font-size: 3rem; color: var(--gray);"></i>
+        </div>
+        <div class="project-details">
+          <h3>Weather Detector</h3>
+          <span class="project-year">2025</span>
+          <p>Aplikasi cuaca berbasis ReactJS dengan integrasi API cuaca real-time dan prediksi 7 hari.</p>
+          <div class="project-links">
+            <a href="https://github.com/Nurmalikaadelia79/weather_app.git"><i class="fab fa-github"></i> Kode</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="container">
+    <h2>Pengalaman Magang</h2>
+    <div class="section-card">
+      <div class="experience-item">
+        <div class="experience-header">
+          <div class="experience-title">
+            <h3>Fullstack Developer, Content Writer & Designer</h3>
+            <p class="experience-company">PT Solusi Aplikasi Integrasi</p>
+          </div>
+          <div class="experience-date">2025 (6 bulan)</div>
+        </div>
+        
+        <div class="experience-description">
+          Magang selama 6 bulan dengan tugas utama membangun tampilan dan fitur website manusia.ai dan disply menggunakan Laravel. Juga terlibat dalam pembuatan konten dan desain untuk kebutuhan perusahaan.
+        </div>
+        
+        <div class="experience-responsibilities">
+          <h4>Tanggung Jawab & Pencapaian:</h4>
+          <div class="responsibility-item">
+            <i class="fas fa-check-circle"></i>
+            <span>Mengembangkan frontend website manusia.ai dan disply dengan teknologi modern</span>
+          </div>
+          <div class="responsibility-item">
+            <i class="fas fa-check-circle"></i>
+            <span>Membangun fitur-fitur interaktif menggunakan Laravel untuk backend dan ReactJS untuk frontend</span>
+          </div>
+          <div class="responsibility-item">
+            <i class="fas fa-check-circle"></i>
+            <span>Mengoptimalkan pengalaman pengguna (UX) dan memastikan website responsif di berbagai perangkat</span>
+          </div>
+          <div class="responsibility-item">
+            <i class="fas fa-check-circle"></i>
+            <span>Membuat konten tulisan untuk blog perusahaan dan materi promosi</span>
+          </div>
+          <div class="responsibility-item">
+            <i class="fas fa-check-circle"></i>
+            <span>Mendesain elemen visual untuk website dan media sosial perusahaan</span>
+          </div>
+          <div class="responsibility-item">
+            <i class="fas fa-check-circle"></i>
+            <span>Berpartisipasi dalam rapat tim dan memberikan masukan untuk pengembangan produk</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education" class="container">
+    <h2>Pendidikan & Sertifikat</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-content section-card">
+          <div class="timeline-date">2023 - Sekarang</div>
+          <h3>SMK Wikrama Bogor</h3>
+          <p>Jurusan Pengembangan Perangkat Lunak dan Gim (PPLG)</p>
+        </div>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-content section-card">
+          <div class="timeline-date">2024</div>
+          <h3>Sertifikat Belajar Unity untuk Pemula</h3>
+          <p>Unity Technologies</p>
+        </div>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-content section-card">
+          <div class="timeline-date">2023</div>
+          <h3>Sertifikat Dasar-Dasar Pemrograman</h3>
+          <p>Dicoding Indonesia</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2>Hubungi Saya</h2>
+      <div class="contact-info">
+        <div class="contact-grid">
+          <div class="contact-card">
+            <div class="contact-icon-wrapper">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <h3>Email</h3>
+            <p>malikaadelia999@gmail.com</p>
+            <a href="mailto:malikaadelia999@gmail.com" class="contact-link">Kirim Email</a>
+          </div>
+          
+          <div class="contact-card">
+            <div class="contact-icon-wrapper">
+              <i class="fas fa-phone"></i>
+            </div>
+            <h3>Telepon</h3>
+            <p>+62 818 0411 3951</p>
+            <a href="tel:+6281804113951" class="contact-link">Hubungi Sekarang</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <a href="#" class="logo" style="color: white;">Nur<span style="color: var(--primary);">Malika</span></a>
+        <div class="footer-links">
+          <a href="#home">Home</a>
+          <a href="#about">Tentang</a>
+          <a href="#skills">Keahlian</a>
+          <a href="#projects">Proyek</a>
+          <a href="#experience">Pengalaman</a>
+          <a href="#contact">Kontak</a>
+        </div>
+        <div class="social-links">
+            <a href="https://github.com/Nurmalikaadelia79"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/nur-malika-adelia-7b9891321/"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://instagram.com/Nurmalikaadelia79"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p class="copyright">&copy; 2025 Nur Malika Adelia.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
