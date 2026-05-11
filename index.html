@@ -309,6 +309,7 @@
       display: flex;
       gap: 1rem;
       margin-top: 1rem;
+      flex-wrap: wrap;
     }
 
     .project-links a {
@@ -341,6 +342,7 @@
       justify-content: space-between;
       align-items: flex-start;
       margin-bottom: 1rem;
+      flex-wrap: wrap;
     }
 
     .experience-title h3 {
@@ -448,7 +450,7 @@
       left: -10px;
     }
 
-    /* Contact Section - DIUBAH */
+    /* Contact Section */
     #contact {
       background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     }
@@ -648,10 +650,9 @@
         <div class="hero-text">
           <p class="tagline">Fullstack Developer</p>
           <h1>Hai, Saya <span>Nur Malika Adelia</span></h1>
-        <p class="hero-description">
-    Saya adalah Fullstack Developer dengan pengalaman dalam mengembangkan aplikasi web menggunakan Laravel dan ReactJS. Selama magang di PT Solusi Aplikasi Integrasi, saya mengerjakan pengembangan Front-End dan Back-End untuk berbagai proyek, termasuk manusia.ai dan display-app.
-</p>
-
+          <p class="hero-description">
+            Saya adalah Fullstack Developer dengan pengalaman dalam mengembangkan aplikasi web menggunakan Laravel dan ReactJS. Selama magang di PT Solusi Aplikasi Integrasi, saya mengerjakan pengembangan Front-End dan Back-End untuk berbagai proyek, termasuk manusia.ai dan display-app.
+          </p>
           <div class="social-links">
             <a href="https://github.com/Nurmalikaadelia79"><i class="fab fa-github"></i></a>
             <a href="https://www.linkedin.com/in/nur-malika-adelia-7b9891321/"><i class="fab fa-linkedin-in"></i></a>
@@ -665,20 +666,29 @@
     </div>
   </section>
 
-  <section id="about" class="container">
-    <h2>Tentang Saya</h2>
-    <div class="section-card">
-      <p>
-        Saya adalah Siswa SMK Wikrama Bogor jurusan Pengembangan Perangkat Lunak dan Gim. Saya memiliki pengalaman magang selama 6 bulan di PT Solusi Aplikasi Integrasi sebagai Front-End Developer untuk proyek manusia.ai dan disply, mulai dari membangun tampilan hingga memastikan pengalaman pengguna berjalan optimal.
-      </p>
-      <p>
-        Selain itu, saya juga terlibat dalam pekerjaan sebagai Content Writer dan Designer, yang memperluas pemahaman saya dalam pembuatan konten dan komunikasi visual. Saya mampu bekerja secara mandiri maupun tim, cepat beradaptasi, dan selalu berusaha memberikan hasil terbaik pada setiap tugas yang saya jalani.
-      </p>
-      <p>
-        Dengan pengetahuan dalam teknologi seperti Laravel, ReactJS, MySQL, dan RESTful API, saya siap untuk berkontribusi dalam pengembangan aplikasi web yang modern dan fungsional.
-      </p>
-    </div>
-  </section>
+<section id="about" class="container">
+  <h2>Tentang Saya</h2>
+
+  <div class="section-card">
+
+    <p>
+      Saya adalah lulusan SMK Wikrama Bogor jurusan Pengembangan Perangkat Lunak dan Gim.
+    </p>
+
+    <p>
+      Saya memiliki pengalaman PKL dan kerja praktik di PT Solusi Aplikasi Integrasi sebagai Front-End hingga Full-Stack Developer pada proyek manusia.ai, disply, dan website perusahaan UTI. Saya terlibat dalam pengembangan tampilan website, pembuatan fitur front-end dan back-end, integrasi sistem, serta membangun website perusahaan dari awal.
+    </p>
+
+    <p>
+      Selain itu, saya juga memiliki pengalaman sebagai Content Writer dan Designer yang membantu meningkatkan kemampuan saya dalam pembuatan konten dan komunikasi visual.
+    </p>
+
+    <p>
+      Saya mampu bekerja secara mandiri maupun dalam tim, cepat beradaptasi dengan lingkungan baru, serta selalu berusaha memberikan hasil terbaik dalam setiap pekerjaan yang saya jalani.
+    </p>
+
+  </div>
+</section>
 
   <section id="skills" class="container">
     <h2>Keahlian</h2>
@@ -760,6 +770,36 @@
   <section id="projects" class="container">
     <h2>Proyek Terbaru</h2>
     <div class="projects-grid">
+      <!-- manusia.ai -->
+      <div class="project-card">
+        <div class="project-image">
+          <i class="fas fa-robot" style="font-size: 3rem; color: var(--gray);"></i>
+        </div>
+        <div class="project-details">
+          <h3>manusia.ai</h3>
+          <span class="project-year">2025</span>
+          <p>Website AI berbasis ReactJS yang dikembangkan selama magang di PT Solusi Aplikasi Integrasi. Bertanggung jawab membangun tampilan front-end dari awal.</p>
+          <div class="project-links">
+            <a href="https://manusia.ai" target="_blank"><i class="fas fa-globe"></i> Kunjungi Website</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- disply.id -->
+      <div class="project-card">
+        <div class="project-image">
+          <i class="fas fa-tachometer-alt" style="font-size: 3rem; color: var(--gray);"></i>
+        </div>
+        <div class="project-details">
+          <h3>disply.id</h3>
+          <span class="project-year">2025-2026</span>
+          <p>Platform display digital yang dikembangkan dari awal hingga maintenance. Terlibat dalam front-end dan back-end development menggunakan Laravel dan ReactJS.</p>
+          <div class="project-links">
+            <a href="https://disply.id" target="_blank"><i class="fas fa-globe"></i> Kunjungi Website</a>
+          </div>
+        </div>
+      </div>
+
       <div class="project-card">
         <div class="project-image">
           <i class="fas fa-pills" style="font-size: 3rem; color: var(--gray);"></i>
@@ -801,51 +841,52 @@
           </div>
         </div>
       </div>
+
+      <!-- Website UTI -->
+      <div class="project-card">
+        <div class="project-image">
+          <i class="fas fa-building" style="font-size: 3rem; color: var(--gray);"></i>
+        </div>
+        <div class="project-details">
+          <h3>Website Perusahaan UTI</h3>
+          <span class="project-year">2026</span>
+          <p>Membangun website perusahaan UTI dari awal hingga tahap pengembangan fitur dan tampilan menggunakan Laravel.</p>
+          <div class="project-links">
+            <a href="#"><i class="fas fa-code-branch"></i> Dalam Pengembangan</a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <section id="experience" class="container">
     <h2>Pengalaman Magang</h2>
     <div class="section-card">
+      <!-- Pengalaman 1 -->
       <div class="experience-item">
         <div class="experience-header">
           <div class="experience-title">
-            <h3>Fullstack Developer, Content Writer & Designer</h3>
+            <h3>Front-End Developer, Content Writer & Designer</h3>
             <p class="experience-company">PT Solusi Aplikasi Integrasi</p>
           </div>
-          <div class="experience-date">2025 (6 bulan)</div>
+          <div class="experience-date">Juli–Desember 2025</div>
         </div>
-        
         <div class="experience-description">
-          Magang selama 6 bulan dengan tugas utama membangun tampilan dan fitur website manusia.ai dan disply menggunakan Laravel. Juga terlibat dalam pembuatan konten dan desain untuk kebutuhan perusahaan.
+          Magang selama 6 bulan dengan tugas utama membangun tampilan dan fitur front-end website manusia.ai dan disply dari awal, serta membantu pembuatan konten dan desain visual perusahaan.
         </div>
-        
-        <div class="experience-responsibilities">
-          <h4>Tanggung Jawab & Pencapaian:</h4>
-          <div class="responsibility-item">
-            <i class="fas fa-check-circle"></i>
-            <span>Mengembangkan frontend website manusia.ai dan disply dengan teknologi modern</span>
+      </div>
+
+      <!-- Pengalaman 2 -->
+      <div class="experience-item">
+        <div class="experience-header">
+          <div class="experience-title">
+            <h3>Full-Stack Developer</h3>
+            <p class="experience-company">PT Solusi Aplikasi Integrasi</p>
           </div>
-          <div class="responsibility-item">
-            <i class="fas fa-check-circle"></i>
-            <span>Membangun fitur-fitur interaktif menggunakan Laravel untuk backend dan ReactJS untuk frontend</span>
-          </div>
-          <div class="responsibility-item">
-            <i class="fas fa-check-circle"></i>
-            <span>Mengoptimalkan pengalaman pengguna (UX) dan memastikan website responsif di berbagai perangkat</span>
-          </div>
-          <div class="responsibility-item">
-            <i class="fas fa-check-circle"></i>
-            <span>Membuat konten tulisan untuk blog perusahaan dan materi promosi</span>
-          </div>
-          <div class="responsibility-item">
-            <i class="fas fa-check-circle"></i>
-            <span>Mendesain elemen visual untuk website dan media sosial perusahaan</span>
-          </div>
-          <div class="responsibility-item">
-            <i class="fas fa-check-circle"></i>
-            <span>Berpartisipasi dalam rapat tim dan memberikan masukan untuk pengembangan produk</span>
-          </div>
+          <div class="experience-date">Januari–Juni 2026</div>
+        </div>
+        <div class="experience-description">
+          PKL lanjutan dengan fokus melanjutkan pengembangan website disply pada bagian front-end dan back-end, termasuk pembuatan fitur, integrasi sistem, dan maintenance aplikasi. Selain itu, membangun website perusahaan UTI dari awal hingga tahap pengembangan fitur dan tampilan.
         </div>
       </div>
     </div>
@@ -856,9 +897,9 @@
     <div class="timeline">
       <div class="timeline-item">
         <div class="timeline-content section-card">
-          <div class="timeline-date">2023 - Sekarang</div>
+          <div class="timeline-date">2023 - 2026</div>
           <h3>SMK Wikrama Bogor</h3>
-          <p>Jurusan Pengembangan Perangkat Lunak dan Gim (PPLG)</p>
+          <p>Jurusan Pengembangan Perangkat Lunak dan Gim (PPLG) - LULUS</p>
         </div>
       </div>
       
@@ -875,6 +916,14 @@
           <div class="timeline-date">2023</div>
           <h3>Sertifikat Dasar-Dasar Pemrograman</h3>
           <p>Dicoding Indonesia</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-content section-card">
+          <div class="timeline-date">2026</div>
+          <h3>Bootcamp Secure Code</h3>
+          <p>Pelatihan keamanan kode dan praktik coding aman untuk pengembangan aplikasi web.</p>
         </div>
       </div>
     </div>
@@ -924,7 +973,7 @@
             <a href="https://www.linkedin.com/in/nur-malika-adelia-7b9891321/"><i class="fab fa-linkedin-in"></i></a>
             <a href="https://instagram.com/Nurmalikaadelia79"><i class="fab fa-instagram"></i></a>
         </div>
-        <p class="copyright">&copy; 2025 Nur Malika Adelia.</p>
+        <p class="copyright">&copy; 2026 Nur Malika Adelia. All Rights Reserved.</p>
       </div>
     </div>
   </footer>
